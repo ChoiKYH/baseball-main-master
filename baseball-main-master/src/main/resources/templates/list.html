@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            background-color: #F0F5F9;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            color: #1E3A5F;
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #FFFFFF;
+            margin-top: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        th {
+            background-color: #1E3A5F;
+            color: #FFFFFF;
+            padding: 10px;
+            text-align: center;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #E0E0E0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: #1E3A5F;
+        }
+
+        .add-link {
+            margin-bottom: 10px;
+            display: block;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>구단 정보<a class="add-link" href="/insertForm">[Add]</a></h1>
+    <table>
+        <thead>
+        <tr>
+            <th>Image</th>
+            <th>Team</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="m : ${base}">
+            <td><img th:src="@{${m.image}}" /></td>
+            <td><a th:href="@{/read/{idx}(idx=${m.idx})}">[[${m.team}]]</a></td>
+            <td>
+                <a th:href="@{/delete/{idx}(idx=${m.idx})}">[Delete]</a>
+                <a th:href="@{/updateForm/{idx}(idx=${m.idx})}">[Update]</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

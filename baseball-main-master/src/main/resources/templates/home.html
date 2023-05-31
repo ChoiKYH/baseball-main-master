@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>library-web-project</title>
+    <style>
+        .menubar {
+            position: absolute;
+            width: 100%;
+            height: 8%;
+            background: #D9D9D9;
+        }
+
+        .home {
+            position: absolute;
+            width: 100%;
+            height: 100vh;
+            background: url(home.png);
+            mix-blend-mode: multiply;
+        }
+
+        .slogan {
+            position: absolute;
+            width: 40%;
+            height: auto;
+            left: 30%;
+            top: 25%;
+            background: url(kboslogan.png);
+            mix-blend-mode: multiply;
+            animation: floating 2s infinite alternate;
+        }
+
+        .logo {
+            position: absolute;
+            width: 10%;
+            height: 5%;
+            left: 3%;
+            top: 4%;
+        }
+
+        .menu1,
+        .menu2,
+        .menu3 {
+            position: absolute;
+            width: 133px;
+            height: 65px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 800;
+            font-size: 2vw;
+            line-height: 2.2vw;
+            text-align: center;
+            color: #000000;
+            cursor: pointer;
+        }
+
+        .menu1 {
+            left: 20%;
+            top: 4%;
+        }
+
+        .menu2 {
+            left: 50%;
+            top: 4%;
+        }
+
+        .menu3 {
+            right: 20%;
+            top: 5%;
+        }
+
+        @keyframes floating {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        @media only screen and (max-width: 768px) {
+            .menu1,
+            .menu2,
+            .menu3 {
+                font-size: 4vw;
+                line-height: 4.4vw;
+            }
+        }
+    </style>
+
+
+    <script>
+        function goToSchedule() {
+            window.location.href = "https://www.koreabaseball.com/Schedule/GameCenter/Main.aspx";
+        }
+
+        function showTeamList() {
+            window.location.href = "/list";
+        }
+    </script>
+</head>
+<body>
+<div class="menubar"></div>
+
+<div class="rectangle"></div>
+<img class="home" src="home.png" />
+<img class="slogan" src="kboslogan.png" />
+<img class="logo" src="kbologo.png" />
+<div class="menu1" onclick="goToSchedule()">일정/결과</div>
+<div class="menu2" onclick="showTeamList()">구단정보</div>
+
+</body>
+</html>
